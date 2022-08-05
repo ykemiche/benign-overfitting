@@ -43,7 +43,7 @@ def compute_kxkny(X_train,X_test,y_train,params,buffers,fnet):
   
   # if torch.linalg.det(kn)==0:
   #   kn=kn+torch.normal(0,0.01,kn.shape).to(device)
-
+  # print("INVVVV :",torch.linalg.det(kn))
   kny= torch.stack([torch.einsum('ij,jk->ik', torch.linalg.inv(kn), y_train)])
   kny=kny.reshape(kny.shape[1],kny.shape[2])
 
